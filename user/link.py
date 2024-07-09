@@ -35,19 +35,19 @@ def main(config: dict) -> None:
 	# Modify loot tables to include apple if not present
 	for leave, loot_table in leaves.items():
 
-		# # Check if the leave already has an apple pool
-		# has_apple: bool = False
-		# for pool in loot_table["pools"]:
-		# 	if pool["entries"][0].get("name") == "minecraft:apple":
+		# Check if the leave already has an apple pool
+		has_apple: bool = False
+		for pool in loot_table["pools"]:
+			if pool["entries"][0].get("name") == "minecraft:apple":
 
-		# 		# If it does, multiply the rolls
-		# 		has_apple = True
-		# 		pool["rolls"] *= MULTIPLIER
-		# 		break
+				# If it does, multiply the rolls
+				has_apple = True
+				pool["rolls"] = apple_pool["rolls"]
+				break
 		
-		# # If it doesn't, add it
-		# if not has_apple:
-		# 	loot_table["pools"].append(apple_pool)
+		# If it doesn't, add it
+		if not has_apple:
+			loot_table["pools"].append(apple_pool)
 		
 		# Write the json file
 		write_to_file(f"{loot_tables_path}/{leave}_leaves.json", super_json_dump(loot_table, max_level = -1))
