@@ -1,5 +1,5 @@
 
-#> more_apples:v1.2.0/load/enumerate
+#> more_apples:v1.2.1/load/enumerate
 #
 # @within	#more_apples:enumerate
 #
@@ -11,5 +11,5 @@ execute unless score #more_apples.major load.status matches 1.. run scoreboard p
 execute if score #more_apples.major load.status matches 1 unless score #more_apples.minor load.status matches 2.. run scoreboard players set #more_apples.minor load.status 2
 
 # If current patch is too low, set it to the current patch (only if major and minor are correct)
-execute if score #more_apples.major load.status matches 1 if score #more_apples.minor load.status matches 2 unless score #more_apples.patch load.status matches 0.. run scoreboard players set #more_apples.patch load.status 0
+execute if score #more_apples.major load.status matches 1 if score #more_apples.minor load.status matches 2 unless score #more_apples.patch load.status matches 1.. run scoreboard players set #more_apples.patch load.status 1
 
