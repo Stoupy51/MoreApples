@@ -1,7 +1,7 @@
 
 # Imports
+import stouputils as stp
 from python_datapack.constants import *
-from python_datapack.utils.print import *
 from python_datapack.utils.io import *
 from config import *
 import requests
@@ -22,6 +22,7 @@ def main(config: dict) -> None:
 		"mangrove": {},
 		"oak": {},
 		"spruce": {},
+		"pale_oak": {},
 	}
 
 	# Download all loot tables
@@ -50,5 +51,5 @@ def main(config: dict) -> None:
 			loot_table["pools"].append(apple_pool)
 		
 		# Write the json file
-		write_to_file(f"{loot_tables_path}/{leave}_leaves.json", super_json_dump(loot_table, max_level = -1))
+		write_to_file(f"{loot_tables_path}/{leave}_leaves.json", stp.super_json_dump(loot_table, max_level = -1))
 
