@@ -51,5 +51,5 @@ def main(config: dict) -> None:
 			loot_table["pools"].append(apple_pool)
 		
 		# Write the json file
-		write_to_file(f"{loot_tables_path}/{leave}_leaves.json", stp.super_json_dump(loot_table, max_level = -1))
+		write_file(f"{loot_tables_path}/{leave}_leaves.json", stp.super_json_dump(loot_table, max_level = -1))
 

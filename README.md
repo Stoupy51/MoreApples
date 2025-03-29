@@ -20,6 +20,7 @@ Every leaf block now has double the chance to drop apples compared to vanilla oa
 - 🌴 Jungle leaves
 - 🌴 Mangrove leaves
 - 🌳 Oak leaves
+- 🌳 Pale Oak leaves
 - 🌲 Spruce leaves
 
 Originally created as a personal request, now available for everyone to enjoy! 🎉
