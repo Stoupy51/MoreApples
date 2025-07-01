@@ -1,15 +1,12 @@
 
 # Imports
-import stouputils as stp
-from python_datapack.constants import *
-from python_datapack.utils.io import *
-from config import *
 import requests
+from stewbeet import Context, LootTable, super_json_dump
+
 
 # Main function is run just before making finalyzing the build process (zip, headers, lang, ...)
-def main(config: dict) -> None:
+def beet_default(ctx: Context) -> None:
 	MULTIPLIER: int = 2
-	loot_tables_path: str = f"{config['build_datapack']}/data/minecraft/loot_table/blocks"
 	minecraft_default_data: str = "https://raw.githubusercontent.com/PixiGeko/Minecraft-default-data/latest/data/minecraft/loot_table/blocks"
 	leaves: dict[str, dict] = {
 		"acacia" : {},
@@ -30,7 +27,7 @@ def main(config: dict) -> None:
 		leaves[leave] = requests.get(f"{minecraft_default_data}/{leave}_leaves.json").json()
 
 	# Get the multiplied pool from oak_leaves.json
-	apple_pool = [pool for pool in leaves["oak"]["pools"] if pool["entries"][0].get("name") == "minecraft:apple"][0]
+	apple_pool = next(pool for pool in leaves["oak"]["pools"] if pool["entries"][0].get("name") == "minecraft:apple")
 	apple_pool["rolls"] *= MULTIPLIER
 
 	# Modify loot tables to include apple if not present
@@ -45,11 +42,13 @@ def main(config: dict) -> None:
 				has_apple = True
 				pool["rolls"] = apple_pool["rolls"]
 				break
-		
+
 		# If it doesn't, add it
 		if not has_apple:
 			loot_table["pools"].append(apple_pool)
-		
+
 		# Write the json file
-		write_file(f"{loot_tables_path}/{leave}_leaves.json", stp.super_json_dump(loot_table, max_level = -1))
+		lt = LootTable(loot_table)
+		lt.encoder = lambda x: super_json_dump(x, max_level=-1)
+		ctx.data["minecraft"].loot_tables[f"blocks/{leave}_leaves"] = lt
 
