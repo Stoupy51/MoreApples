@@ -20,10 +20,10 @@ SUMMARY: str = """
 More Apples is a simple data pack that modifies all leaves loot tables to add twice as many apples as vanilla oak leaves.
 """
 
-DESCRIPTION_MARKDOWN: str = ""
+description_markdown: str = ""
 if os.path.exists(f"{ROOT}/README.md"):
 	with open(f"{ROOT}/README.md", encoding="utf-8") as file:
-		DESCRIPTION_MARKDOWN = file.read()
+		description_markdown = file.read()
 else:
 	print("README.md not found, description_markdown will be empty")
 
@@ -38,10 +38,12 @@ modrinth_config: dict = {
 	"slug": "more-apples",
 	"project_name": cfg.name,
 	"version": cfg.version,
+	"authors": cfg.author,
 	"summary": SUMMARY,
-	"description_markdown": DESCRIPTION_MARKDOWN,
+	"description_markdown": description_markdown,
 	"dependencies": DEPENDENCIES,
 	"version_type": VERSION_TYPE,
 	"build_folder": cfg.output,
+	"package_as_mod": "separate",
 }
 
