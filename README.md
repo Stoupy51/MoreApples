@@ -25,6 +25,8 @@ Every leaf block now has double the chance to drop apples compared to vanilla oa
 
 Originally created as a personal request, now available for everyone to enjoy! 🎉
 
+![Promotional image](https://raw.githubusercontent.com/Stoupy51/MoreApples/refs/heads/main/assets/promo_1.jpg)
+
 ## ⭐ Star History
 
 <a href="https://star-history.com/#Stoupy51/MoreApples&Date">
