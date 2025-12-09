@@ -1,14 +1,14 @@
 
 # Imports
 import requests
-from stewbeet import Context, LootTable, super_json_dump
+from stewbeet import Context, JsonDict, LootTable, set_json_encoder
 
 
 # Main function is run just before making finalyzing the build process (zip, headers, lang, ...)
 def beet_default(ctx: Context) -> None:
 	MULTIPLIER: int = 2
 	minecraft_default_data: str = "https://raw.githubusercontent.com/PixiGeko/Minecraft-default-data/latest/data/minecraft/loot_table/blocks"
-	leaves: dict[str, dict] = {
+	leaves: dict[str, JsonDict] = {
 		"acacia" : {},
 		"azalea" : {},
 		"birch": {},
@@ -48,7 +48,5 @@ def beet_default(ctx: Context) -> None:
 			loot_table["pools"].append(apple_pool)
 
 		# Write the json file
-		lt = LootTable(loot_table)
-		lt.encoder = lambda x: super_json_dump(x, max_level=-1)
-		ctx.data["minecraft"].loot_tables[f"blocks/{leave}_leaves"] = lt
+		ctx.data["minecraft"].loot_tables[f"blocks/{leave}_leaves"] = set_json_encoder(LootTable(loot_table), max_level=-1)
 
