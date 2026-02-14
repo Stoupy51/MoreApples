@@ -1,30 +1,22 @@
 
 # Imports
-import requests
+from beet.contrib.vanilla import Vanilla
 from stewbeet import Context, JsonDict, LootTable, set_json_encoder
 
 
 # Main function is run just before making finalyzing the build process (zip, headers, lang, ...)
 def beet_default(ctx: Context) -> None:
 	MULTIPLIER: int = 2
-	minecraft_default_data: str = "https://raw.githubusercontent.com/PixiGeko/Minecraft-default-data/latest/data/minecraft/loot_table/blocks"
 	leaves: dict[str, JsonDict] = {
-		"acacia" : {},
-		"azalea" : {},
-		"birch": {},
-		"cherry": {},
-		"dark_oak": {},
-		"flowering_azalea": {},
-		"jungle": {},
-		"mangrove": {},
-		"oak": {},
-		"spruce": {},
-		"pale_oak": {},
-	}
+		x: {} for x in [
+			"acacia", "azalea", "birch", "cherry", "dark_oak", "flowering_azalea",
+			"jungle", "mangrove", "oak", "spruce", "pale_oak"
+	]}
 
 	# Download all loot tables
+	vanilla = Vanilla(ctx)
 	for leave in leaves.keys():
-		leaves[leave] = requests.get(f"{minecraft_default_data}/{leave}_leaves.json").json()
+		leaves[leave] = vanilla.data["minecraft"].loot_tables[f"blocks/{leave}_leaves"].data
 
 	# Get the multiplied pool from oak_leaves.json
 	apple_pool = next(pool for pool in leaves["oak"]["pools"] if pool["entries"][0].get("name") == "minecraft:apple")
