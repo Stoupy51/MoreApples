@@ -29,11 +29,5 @@ Originally created as a personal request, now available for everyone to enjoy! 
 
 ## ‚≠ê Star History
 
-<a href="https://star-history.com/#Stoupy51/MoreApples&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Stoupy51/MoreApples&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Stoupy51/MoreApples&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Stoupy51/MoreApples&type=Date" />
- </picture>
-</a>
+[![Star History Chart](https://api.star-history.com/chart?repos=Stoupy51/MoreApples&type=date&legend=top-left)](https://www.star-history.com/?repos=Stoupy51%2FMoreApples&type=date&legend=top-left)
 
