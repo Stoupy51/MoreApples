@@ -28,7 +28,7 @@ modrinth_config: JsonDict = {
 	"project_name": cfg.name,
 	"version": cfg.version,
 	"authors": cfg.author,
-	"summary": "More Apples is a simple data pack that modifies all leaves loot tables to add twice as many apples as vanilla oak leaves.",
+	"summary": "More Apples is a simple datapack that modifies all leaves loot tables to add twice as many apples as vanilla oak leaves.",
 	"description_markdown": read_file(f"{cfg.directory}/README.md"),
 	"version_type": "release",
 	"build_folder": cfg.output,
