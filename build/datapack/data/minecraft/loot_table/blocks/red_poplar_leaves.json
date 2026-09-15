@@ -15,7 +15,7 @@
 									"minecraft:tool/can_silk_touch"
 								]
 							},
-							"name": "minecraft:acacia_leaves"
+							"name": "minecraft:red_poplar_leaves"
 						},
 						{
 							"type": "minecraft:item",
@@ -37,7 +37,7 @@
 									}
 								]
 							},
-							"name": "minecraft:acacia_sapling"
+							"name": "minecraft:poplar_sapling"
 						}
 					]
 				}
@@ -126,5 +126,5 @@
 			"rolls": 2
 		}
 	],
-	"random_sequence": "minecraft:blocks/acacia_leaves"
+	"random_sequence": "minecraft:blocks/red_poplar_leaves"
 }

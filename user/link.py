@@ -10,7 +10,7 @@ def beet_default(ctx: Context) -> None:
 	leaves: dict[str, JsonDict] = {
 		x: {} for x in [
 			"acacia", "azalea", "birch", "cherry", "dark_oak", "flowering_azalea",
-			"jungle", "mangrove", "oak", "spruce", "pale_oak"
+			"jungle", "mangrove", "oak", "spruce", "pale_oak", "red_poplar", "orange_poplar", "yellow_poplar"
 	]}
 
 	# Download all loot tables

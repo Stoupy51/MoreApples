@@ -1,12 +1,11 @@
 {
 	"pack": {
-		"pack_format": 61,
+		"pack_format": 121,
 		"description": "MoreApples [1.3.4] by Stoupy51",
-		"supported_formats": [
-			61,
-			9999
+		"min_format": [
+			121,
+			0
 		],
-		"min_format": 61,
 		"max_format": [
 			9999,
 			0
